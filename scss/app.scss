@@ -1,3 +1,38 @@
+@import 'partials/reset';
+@import 'partials/variables';
+@import 'bourbon/bourbon';
+
 body {
-    display: flex;
+  @include display(flex);
+  @include justify-content(center);
+
+
+}
+
+
+.vid-container {
+  position: relative;
+
+
+
+  .vid-controls {
+    @include align-items(center);
+    @include display(flex);
+    @include justify-content(space-between);
+    //background-color: $controls-bg;
+    bottom: 0;
+    color: $white;
+    height: 100px;
+    padding: 0 $padding;
+    position: absolute;
+    width: 100%;
+
+    .inner-controls-1 {
+      //@include align-items(flex-start);
+      @include display(flex);
+      @include justify-content(center);
+
+
+    }
+  }
 }
