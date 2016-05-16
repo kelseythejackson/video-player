@@ -128,6 +128,24 @@ a {
 *::after {
   box-sizing: border-box; }
 
+.inner-controls .inner-controls-1, .inner-controls .inner-controls-2 {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify; }
+
 body {
   display: -webkit-box;
   display: -moz-box;
@@ -144,10 +162,40 @@ body {
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center; }
+  -ms-flex-pack: center;
+  font-family: "Asap", sans-serif; }
 
 .vid-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  padding: 12px;
   position: relative; }
+  .vid-container .video-class {
+    width: 100%; }
   .vid-container .vid-controls {
     -webkit-box-align: center;
     -moz-box-align: center;
@@ -165,35 +213,54 @@ body {
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -moz-box-pack: justify;
-    box-pack: justify;
-    -webkit-justify-content: space-between;
-    -moz-justify-content: space-between;
-    -ms-justify-content: space-between;
-    -o-justify-content: space-between;
-    justify-content: space-between;
-    -ms-flex-pack: justify;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column;
     bottom: 0;
     color: #fff;
-    height: 100px;
-    padding: 0 24px;
+    height: 80px;
+    left: 0;
+    padding: 0 12px;
     position: absolute;
-    width: 100%; }
-    .vid-container .vid-controls .inner-controls-1 {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -moz-box-pack: center;
-      box-pack: center;
-      -webkit-justify-content: center;
-      -moz-justify-content: center;
-      -ms-justify-content: center;
-      -o-justify-content: center;
-      justify-content: center;
-      -ms-flex-pack: center; }
+    width: 100%;
+    z-index: 2147483647; }
+    .vid-container .vid-controls .time-rail {
+      background-color: #fff;
+      height: 5px;
+      width: calc(100% - 24px); }
+
+.inner-controls {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+  padding: 24px;
+  width: 100%; }
+  .inner-controls .inner-controls-1 {
+    width: 120px; }
+    .inner-controls .inner-controls-1 p {
+      line-height: 26px; }
+  .inner-controls .inner-controls-2 {
+    width: 72px; }
+
+video::-webkit-media-controls-enclosure {
+  display: none !important; }

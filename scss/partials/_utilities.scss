@@ -1,0 +1,4 @@
+%control-share {
+  @include display(flex);
+  @include justify-content(space-between);
+}

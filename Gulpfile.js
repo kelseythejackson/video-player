@@ -2,8 +2,8 @@
 'use strict';
 
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    ts = require('gulp-typescript');
+    sass = require('gulp-sass')/*,
+    ts = require('gulp-typescript')*/;
 
 gulp.task('sass', function () {
   return gulp.src('./scss/**/*.scss')
@@ -11,16 +11,16 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./css'));
 });
 
-gulp.task('ts', function () {
-  return gulp.src('./ts/**/*.ts')
-    .pipe(ts())
-    .pipe(gulp.dest('./js'));
-});
+// gulp.task('ts', function () {
+//   return gulp.src('./ts/**/*.ts')
+//     .pipe(ts())
+//     .pipe(gulp.dest('./js'));
+// });
 
 
 gulp.task("watchFiles", function(){
   gulp.watch("./scss/**/*.scss", ["sass"]);
-  gulp.watch("./ts/**/*.ts", ["ts"]);
+  // gulp.watch("./ts/**/*.ts", ["ts"]);
 });
 
 gulp.task('serve', ['watchFiles']);
