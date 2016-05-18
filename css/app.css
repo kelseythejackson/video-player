@@ -256,11 +256,13 @@ body {
   padding: 24px;
   width: 100%; }
   .inner-controls .inner-controls-1 {
-    width: 120px; }
+    width: 136px; }
     .inner-controls .inner-controls-1 p {
       line-height: 26px; }
   .inner-controls .inner-controls-2 {
-    width: 72px; }
+    width: 300px; }
+  .inner-controls img:hover {
+    cursor: pointer; }
 
 video::-webkit-media-controls-enclosure {
   display: none !important; }

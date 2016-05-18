@@ -9,7 +9,7 @@
         <video id="video-id" class="video-class">
             <source src="video/video.mp4" type="video/mp4">
             <source src="video/video.ogg" type="video/ogg">
-            <track label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default>
+            <track label="English" kind="captions" srclang="en" src="video/captions.vtt" default>
         </video>
         <div id="vid-controls" class="vid-controls">
             <div class="time-rail">
@@ -17,13 +17,17 @@
             </div>
             <div class="inner-controls">
                 <div class="inner-controls-1">
-                    <img src="icons/play-icon.png" alt="">
+                    <img id="play" src="icons/play_arrow.svg" alt="">
                     <p>07:42/ 15:35</p>
                 </div>
 
                 <div class="inner-controls-2">
-                    <img src="icons/volume-on-icon.png" alt="">
-                    <img src="icons/fullscreen-icon.png" alt="">
+                    <img src="icons/closed_caption.svg" alt="" title="Closed Captioning">
+                    <img src="icons/replay_10.svg" alt="" title="Jump Back Ten Seconds">
+                    <img src="icons/forward_10.svg" alt="" title="Jump Forward Ten Seconds">
+                    <img src="icons/playback_speed.svg" alt="" title="Playback Speed">
+                    <img id="volume" src="icons/volume_up.svg" alt="" title="Volume">
+                    <img id="fullscreen" src="icons/fullscreen.svg" alt="" title="Enter Fullscreen">
                 </div>
             </div>
 
