@@ -6,19 +6,20 @@
     </head>
     <body>
     <div id="vid-container" class="vid-container">
-        <video id="video-id" class="video-class">
+        <video id="video-id" class="video-class" controls>
             <source src="video/video.mp4" type="video/mp4">
             <source src="video/video.ogg" type="video/ogg">
             <track label="English" kind="captions" srclang="en" src="video/captions.vtt" default>
         </video>
         <div id="vid-controls" class="vid-controls">
             <div class="time-rail">
-
+                <div class="buffer"></div>
+                <div class="time"></div>
             </div>
             <div class="inner-controls">
                 <div class="inner-controls-1">
                     <img id="play" src="icons/play_arrow.svg" alt="">
-                    <p>07:42/ 15:35</p>
+                    <p><span id="video-start">00:00</span> / <span id="video-end"></span></p>
                 </div>
 
                 <div class="inner-controls-2">

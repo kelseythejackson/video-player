@@ -232,9 +232,18 @@ body {
     width: 100%;
     z-index: 2147483647; }
     .vid-container .vid-controls .time-rail {
-      background-color: #fff;
-      height: 5px;
+      background-color: rgba(255, 255, 255, 0.5);
+      min-height: 5px;
+      position: relative;
       width: calc(100% - 24px); }
+      .vid-container .vid-controls .time-rail .buffer {
+        background-color: #7f7f7f;
+        height: 100%;
+        position: absolute; }
+      .vid-container .vid-controls .time-rail .time {
+        background-color: #000088;
+        height: 100%;
+        position: absolute; }
 
 .inner-controls {
   display: -webkit-box;
@@ -256,7 +265,7 @@ body {
   padding: 24px;
   width: 100%; }
   .inner-controls .inner-controls-1 {
-    width: 136px; }
+    width: 140px; }
     .inner-controls .inner-controls-1 p {
       line-height: 26px; }
   .inner-controls .inner-controls-2 {
@@ -264,5 +273,5 @@ body {
   .inner-controls img:hover {
     cursor: pointer; }
 
-video::-webkit-media-controls-enclosure {
+video:-webkit-media-controls-enclosure {
   display: none !important; }

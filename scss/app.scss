@@ -39,9 +39,24 @@ body {
     z-index: 2147483647;
 
     .time-rail {
-      background-color: $white;
-      height: 5px;
+      background-color: rgba($white, .5);
+      min-height: 5px;
+      position: relative;
       width: calc(100% - 24px);
+
+      .buffer {
+        background-color: #7f7f7f;
+        height: 100%;
+        position: absolute;
+
+      }
+
+      .time {
+        background-color: #000088;
+        height: 100%;
+        position: absolute;
+
+      }
 
     }
 
@@ -57,7 +72,7 @@ body {
 
   .inner-controls-1 {
     @extend %control-share;
-    width: 136px;
+    width: 140px;
 
     p {
       line-height: 26px;
@@ -76,6 +91,6 @@ body {
   }
 }
 
-video::-webkit-media-controls-enclosure {
+video:-webkit-media-controls-enclosure {
   display:none !important;
 }
