@@ -1,4 +1,204 @@
 %control-share {
-  @include display(flex);
-  @include justify-content(space-between);
+  // @include display(flex);
+  // @include justify-content(space-between);
+  display: flex;
+  justify-content: space-between;
+}
+
+%time-rail {
+  .time-rail {
+    background-color: rgba($white, .15);
+    border-radius: $border-radius;
+    min-height: 7.5px;
+    position: relative;
+    width: 100%;
+
+    .buffer {
+      background-color: $buffer-color;
+      border-radius: $border-radius;
+      height: 100%;
+      position: absolute;
+
+    }
+
+    .time {
+      background-color: $tango;
+      border-radius: $border-radius;
+      height: 100%;
+      position: absolute;
+
+    }
+
+  }
+}
+
+%inner-controls-1 {
+  .inner-controls-1 {
+    @extend %control-share;
+    width: 140px;
+
+    p {
+      line-height: 26px;
+    }
+  }
+}
+
+%image-hover {
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+
+
+%inner-controls {
+  .inner-controls {
+    @extend %inner-controls-1;
+    @extend %show-hide;
+    // @include display(flex);
+    // @include justify-content(space-between);
+    display: flex;
+    justify-content: space-between;
+    padding: $padding * 1.333333 $padding 0;
+    transition: $transition;
+    width: 100%;
+
+    .inner-controls-2 {
+      @extend %control-share;
+      width: 300px;
+    }
+
+    img {
+      @extend %image-hover;
+      @extend %full-opacity;
+      max-height: 27px;
+      opacity: .5;
+      transition: $transition;
+    }
+  }
+}
+
+%vid-container {
+  .vid-container {
+    // @include display(flex);
+    // @include flex-direction(column);
+    // @include justify-content(center);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $padding;
+    position: relative;
+
+    .video-class {
+      width: 100%;
+    }
+
+    .holder {
+      bottom: 0;
+      position: absolute;
+      width: calc(100% - 24px);
+    }
+
+    .captioning {
+      @extend %captioning;
+    }
+
+    .vid-controls {
+      @extend %time-rail;
+      @extend %inner-controls;
+      @extend %toggle-height;
+      // @include align-items(center);
+      // @include display(flex);
+      // @include flex-direction(column);
+      // @include calc(width, '100% - 24px');
+      align-items: center;
+      background-color: rgba($black, .5);
+      bottom: 0;
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      height: 80px;
+      margin: 0 0 12px;
+      padding: $padding;
+      // position: absolute;
+      transition: $transition;
+      width: 100%;
+      z-index: 2147483647;
+
+      //&:hover {
+      //  height: 80px;
+      //}
+    }
+
+
+  }
+}
+
+%show-hide {
+  &.show-hide {
+    opacity: 0;
+    transition: $transition;
+
+    .vid-container:hover & {
+      opacity: 1;
+    }
+  }
+}
+
+%toggle-height {
+  &.toggle-height {
+    height: 30px;
+    transition: $transition;
+
+    .vid-container:hover & {
+      height: 80px;
+    }
+  }
+}
+
+%transcript {
+  .transcript {
+    padding: 12px;
+
+    span {
+      @extend %highlight;
+      color: $oslo-gray;
+      transition: $transition;
+    }
+  }
+}
+
+%highlight {
+  &.highlight {
+    color: $tango;
+  }
+}
+
+%captioning {
+  margin: auto;
+  width: 50%;
+
+  p {
+    @extend %hidden;
+
+    background-color: rgba($black, .5);
+    border-radius: $border-radius;
+    color: $white;
+    margin: $padding;
+    padding: $padding;
+    text-align: center;
+  }
+}
+
+%hidden {
+  &.hidden {
+    display: none;
+  }
+}
+
+%full-opacity {
+  &.full-opacity {
+    opacity: 1;
+  }
 }

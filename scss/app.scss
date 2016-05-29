@@ -3,94 +3,19 @@
 @import 'partials/variables';
 @import 'partials/utilities';
 
-
-
 body {
-  @include display(flex);
-  @include justify-content(center);
+  @extend %vid-container;
+  @extend %transcript;
+  // @include display(flex);
+  // @include flex-direction(column);
+  // @include justify-content(center);
+  display: flex;
+  flex-direction: column;
   font-family: $font-family;
-
-}
-
-
-.vid-container {
-  @include display(flex);
-  @include flex-direction(column);
-  @include justify-content(center);
-  padding: $padding;
-  position: relative;
-
-  .video-class {
-    width: 100%;
-  }
-
-  .vid-controls {
-    @include align-items(center);
-    @include display(flex);
-    @include flex-direction(column);
-    //background-color: $controls-bg;
-    bottom: 0;
-    color: $white;
-    height: 80px;
-    left: 0;
-    padding: 0 $padding;
-    position: absolute;
-    width: 100%;
-    z-index: 2147483647;
-
-    .time-rail {
-      background-color: rgba($white, .5);
-      min-height: 5px;
-      position: relative;
-      width: calc(100% - 24px);
-
-      .buffer {
-        background-color: #7f7f7f;
-        height: 100%;
-        position: absolute;
-
-      }
-
-      .time {
-        background-color: #000088;
-        height: 100%;
-        position: absolute;
-
-      }
-
-    }
-
-
-  }
-}
-
-.inner-controls {
-  @include display(flex);
-  @include justify-content(space-between);
-  padding: $padding * 2;
-  width: 100%;
-
-  .inner-controls-1 {
-    @extend %control-share;
-    width: 140px;
-
-    p {
-      line-height: 26px;
-    }
-  }
-
-  .inner-controls-2 {
-    @extend %control-share;
-    width: 300px;
-  }
-
-  img {
-    &:hover {
-      cursor: pointer;
-    }
-  }
+  justify-content: center;
+  line-height: 1.75rem;
 }
 
 video:-webkit-media-controls-enclosure {
-  display:none !important;
+  display: none !important;
 }
