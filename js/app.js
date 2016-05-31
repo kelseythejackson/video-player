@@ -57,8 +57,8 @@ var videoPlayer = {
         if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
             if(videoPlayer.vid.requestFullscreen) {
                 videoPlayer.vid.requestFullscreen();
-            } else if(videoPlayer.vid.mozrequestFullscreen) {
-                videoPlayer.vid.mozrequestFullscreen();
+            } else if(videoPlayer.vid.mozRequestFullScreen) {
+                videoPlayer.vid.mozRequestFullScreen();
             } else if(videoPlayer.vid.webkitRequestFullscreen) {
                 videoPlayer.vid.webkitRequestFullscreen();
             } else if(videoPlayer.vid.msRequestFullscreen) {

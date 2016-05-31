@@ -1,6 +1,7 @@
 %control-share {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+
 }
 
 %time-rail {
@@ -84,6 +85,7 @@
       @extend %image-hover;
       @extend %full-opacity;
       max-height: 27px;
+      min-width: 44px;
       opacity: .5;
       transition: $transition;
     }
@@ -105,7 +107,7 @@
     .holder {
       position: relative;
       width: 100%;
-      z-index: 2147483647;
+      z-index: 2147483646;
 
       @media screen and (min-width: 737px) {
         bottom: 0;
@@ -283,8 +285,10 @@
 }
 
 .image-holder {
+  display: flex;
+  justify-content: center;
+  min-width: 44px;
   position: relative;
-  width: 27px;
 }
 
 .playback-callout {
@@ -317,4 +321,9 @@
       transition: $transition;
     }
   }
+}
+
+.playback-speed,
+.volume {
+  max-width: 27px;
 }
