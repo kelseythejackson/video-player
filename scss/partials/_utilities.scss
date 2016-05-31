@@ -1,6 +1,4 @@
 %control-share {
-  // @include display(flex);
-  // @include justify-content(space-between);
   display: flex;
   justify-content: space-between;
 }
@@ -56,17 +54,30 @@
   .inner-controls {
     @extend %inner-controls-1;
     @extend %show-hide;
-    // @include display(flex);
-    // @include justify-content(space-between);
     display: flex;
     justify-content: space-between;
     padding: $padding * 1.333333 $padding 0;
     transition: $transition;
     width: 100%;
 
-    .inner-controls-2 {
+    .inner-controls-2-mobile {
       @extend %control-share;
+      position: relative;
+      width: 30px;
+
+      @media screen and (min-width: 737px) {
+        display: none;
+      }
+    }
+
+    .inner-controls-2-desktop {
+      @extend %control-share;
+      display: none;
       width: 300px;
+
+      @media screen and (min-width: 737px) {
+        display: flex;
+      }
     }
 
     img {
@@ -81,9 +92,6 @@
 
 %vid-container {
   .vid-container {
-    // @include display(flex);
-    // @include flex-direction(column);
-    // @include justify-content(center);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -95,9 +103,16 @@
     }
 
     .holder {
-      bottom: 0;
-      position: absolute;
-      width: calc(100% - 24px);
+      position: relative;
+      width: 100%;
+      z-index: 2147483647;
+
+      @media screen and (min-width: 737px) {
+        bottom: 0;
+        left: 12px;
+        position: absolute;
+        width: calc(100% - 24px);
+      }
     }
 
     .captioning {
@@ -108,27 +123,22 @@
       @extend %time-rail;
       @extend %inner-controls;
       @extend %toggle-height;
-      // @include align-items(center);
-      // @include display(flex);
-      // @include flex-direction(column);
-      // @include calc(width, '100% - 24px');
       align-items: center;
-      background-color: rgba($black, .5);
+      background-color: $black;
       bottom: 0;
       color: $white;
       display: flex;
       flex-direction: column;
       height: 80px;
-      margin: 0 0 12px;
       padding: $padding;
-      // position: absolute;
       transition: $transition;
       width: 100%;
       z-index: 2147483647;
 
-      //&:hover {
-      //  height: 80px;
-      //}
+      @media screen and (min-width: 737px) {
+        background-color: rgba($black, .5);
+        margin: 0 0 12px;
+      }
     }
 
 
@@ -137,22 +147,29 @@
 
 %show-hide {
   &.show-hide {
-    opacity: 0;
+    opacity: 1;
     transition: $transition;
 
     .vid-container:hover & {
       opacity: 1;
+    }
+    @media screen and (min-width: 737px) {
+      opacity: 0;
     }
   }
 }
 
 %toggle-height {
   &.toggle-height {
-    height: 30px;
+    height: 80px;
     transition: $transition;
 
     .vid-container:hover & {
       height: 80px;
+    }
+
+    @media screen and (min-width: 737px) {
+      height: 30px;
     }
   }
 }
@@ -162,6 +179,7 @@
     padding: 12px;
 
     span {
+      @extend %image-hover;
       @extend %highlight;
       color: $oslo-gray;
       transition: $transition;
@@ -177,15 +195,18 @@
 
 %captioning {
   margin: auto;
-  width: 50%;
+  width: 100%;
 
   p {
     @extend %hidden;
-
+    align-items: center;
     background-color: rgba($black, .5);
     border-radius: $border-radius;
     color: $white;
-    margin: $padding;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    margin: -92px $padding $padding;
     padding: $padding;
     text-align: center;
   }
@@ -193,12 +214,103 @@
 
 %hidden {
   &.hidden {
-    display: none;
+    bottom: 28px;
+    opacity: 0;
   }
 }
 
 %full-opacity {
   &.full-opacity {
     opacity: 1;
+  }
+}
+
+%container {
+  @extend %vid-container;
+  @extend %transcript;
+
+  .container {
+    margin: auto;
+    max-width: 1280px;
+  }
+}
+
+.mobile-controls {
+  @extend %hidden;
+  background-color: rgba($black, .5);
+  bottom: 68px;
+  color: $white;
+  margin: 0 0 12px;
+  padding: $padding;
+  position: absolute;
+  width: 100%;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        display: flex;
+        justify-content: space-between;
+        width: 120px;
+
+        span {
+          @extend %add-color;
+          transition: $transition;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 737px) {
+    display: none;
+  }
+}
+
+
+%add-color {
+  &.add-color {
+    color: $tango;
+  }
+}
+
+.image-holder {
+  position: relative;
+  width: 27px;
+}
+
+.playback-callout {
+  @extend %base-callout;
+}
+
+.volume-callout {
+  @extend %base-callout;
+}
+
+%base-callout {
+  @extend %hidden;
+  align-items: center;
+  background-color: $black;
+  border-radius: $border-radius;
+  bottom: 36px;
+  display: flex;
+  height: 120px;
+  justify-content: center;
+  left: -12px;
+  opacity: 1;
+  position: absolute;
+  transition: $transition;
+  width: 50px;
+
+  ul {
+    li {
+      @extend %add-color;
+      @extend %image-hover;
+      transition: $transition;
+    }
   }
 }

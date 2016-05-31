@@ -4,8 +4,7 @@
 @import 'partials/utilities';
 
 body {
-  @extend %vid-container;
-  @extend %transcript;
+  @extend %container;
   // @include display(flex);
   // @include flex-direction(column);
   // @include justify-content(center);
@@ -15,7 +14,13 @@ body {
   justify-content: center;
   line-height: 1.75rem;
 }
-
-video:-webkit-media-controls-enclosure {
+// ::-webkit-media-controls {
+//   display:none !important;
+// }
+//
+// video::-webkit-media-controls {
+//   display:none !important;
+// }
+video::-webkit-media-controls-enclosure {
   display: none !important;
 }

@@ -2,20 +2,18 @@
 'use strict';
 
 var gulp = require('gulp'),
-    sass = require('gulp-sass')/*,
-    ts = require('gulp-typescript')*/;
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('sass', function () {
   return gulp.src('./scss/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./css'));
 });
 
-// gulp.task('ts', function () {
-//   return gulp.src('./ts/**/*.ts')
-//     .pipe(ts())
-//     .pipe(gulp.dest('./js'));
-// });
+
 
 
 gulp.task("watchFiles", function(){

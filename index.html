@@ -7,48 +7,97 @@
         <link rel="stylesheet" href="css/app.css" type="text/css">
     </head>
     <body>
-    <div id="vid-container" class="vid-container">
-        <video id="video-id" class="video-class" controls>
+      <div class="container">
+        <div id="vid-container" class="vid-container">
+          <video id="video-id" class="video-class" controls>
             <source src="video/video.mp4" type="video/mp4">
-            <source src="video/video.ogg" type="video/ogg">
-            <track label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default>
-        </video>
-        <div class="holder">
-          <div class="captioning">
-            <p class="hidden">Now that we've looked at the architecture of the internet, let's see how you might</p>
-          </div>
-          <div id="vid-controls" class="vid-controls">
-
-              <div class="time-rail">
-                  <div class="buffer"></div>
-                  <div class="time"></div>
-              </div>
-              <div class="inner-controls">
-                  <div class="inner-controls-1">
-                      <img id="play" src="icons/play_arrow.svg" alt="">
-                      <p><span id="video-start">00:00</span>&nbsp;/&nbsp;<span id="video-end">00:00</span></p>
+              <source src="video/video.ogg" type="video/ogg">
+                <track label="English" kind="subtitles" srclang="en" src="video/captions.vtt" default>
+                </video>
+                <div class="holder">
+                  <div class="mobile-controls hidden">
+                    <ul>
+                      <li>
+                        <p>
+                          playback speed
+                        </p>
+                        <p>
+                          <span class="normal add-color">1x</span>
+                          <span class="fast">1.5x</span>
+                          <span class="faster">2x</span>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          caption
+                        </p>
+                        <p>
+                          <span class="mobile-on">On</span>
+                          <span class="mobile-off add-color">Off</span>
+                        </p>
+                      </li>
+                    </ul>
                   </div>
-
-                  <div class="inner-controls-2">
-                      <img class="close-caption" src="icons/closed_caption.svg" alt="" title="Closed Captioning">
-                      <img src="icons/replay_10.svg" alt="" title="Jump Back Ten Seconds">
-                      <img src="icons/forward_10.svg" alt="" title="Jump Forward Ten Seconds">
-                      <img src="icons/playback_speed.svg" alt="" title="Playback Speed">
-                      <img id="volume" src="icons/volume_up.svg" alt="" title="Volume">
-                      <img id="fullscreen" src="icons/fullscreen.svg" alt="" title="Enter Fullscreen">
+                  <div class="captioning">
+                    <p class="hidden">Now that we've looked at the architecture of the internet, let's see how you might</p>
                   </div>
+                  <div id="vid-controls" class="vid-controls">
+
+                    <div class="time-rail">
+                      <div class="buffer"></div>
+                      <div class="time"></div>
+                    </div>
+                    <div class="inner-controls">
+                      <div class="inner-controls-1">
+                        <img id="play" src="icons/play_arrow.svg" alt="">
+                        <p><span id="video-start">00:00</span>&nbsp;/&nbsp;<span id="video-end">00:00</span></p>
+                      </div>
+                      <div class="inner-controls-2-mobile">
+
+                        <img class="mobile-settings" src="icons/mobile-settings.svg" alt="" title="Mobile Settings">
+
+                      </div>
+                      <div class="inner-controls-2-desktop">
+                        <img class="close-caption" src="icons/closed_caption.svg" alt="" title="Closed Captioning">
+                        <img  class="jump-back" src="icons/replay_10.svg" alt="" title="Jump Back Ten Seconds">
+                        <img class="jump-forward" src="icons/forward_10.svg" alt="" title="Jump Forward Ten Seconds">
+                        <div class="image-holder">
+                          <div class="playback-callout hidden">
+                            <ul>
+                              <li class="desktop-fastest">2x</li>
+                              <li class="desktop-fast">1.5x</li>
+                              <li class="desktop-normal add-color">1x</li>
+                              <li class="desktop-slow">.5x</li>
+                            </ul>
+                          </div>
+                          <img class="playback-speed" src="icons/playback_speed.svg" alt="" title="Playback Speed">
+                        </div>
+                        <div class="image-holder">
+                          <div class="volume-callout hidden">
+                            <ul>
+                              <li class="full-volume add-color">100%</li>
+                              <li class="fifty-percent-vol">50%</li>
+                              <li class="twentyfive-percent-vol">25%</li>
+                              <li class="no-volume">Off</li>
+                            </ul>
+                          </div>
+                          <img id="volume" src="icons/volume_up.svg" alt="" title="Volume">
+                        </div>
+
+                        <img id="fullscreen" src="icons/fullscreen.svg" alt="" title="Enter Fullscreen">
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
               </div>
-
-          </div>
-        </div>
-
+              <div>
+                <p class="transcript">
+                  <span>Now that we've looked at the architecture of the internet, let's see how you might</span> <span>connect your personal devices to the internet inside your house.</span><span> Well there are many ways to connect to the internet, and</span> <span>most often people connect wirelessly.</span> <span>Let's look at an example of how you can connect to the internet.</span> <span>If you live in a city or a town, you probably have a coaxial cable for</span> <span>cable Internet, or a phone line if you have DSL, running to the outside of</span> <span>your house, that connects you to the Internet Service Provider, or ISP.</span> <span>If you live far out in the country, you'll more likely have</span> <span>a dish outside your house, connecting you wirelessly to your closest ISP, or</span> <span>you might also use the telephone system.</span> <span>Whether a wire comes straight from the ISP hookup outside your house, or</span> <span>it travels over radio waves from your roof,</span> <span>the first stop a wire will make once inside your house, is at your modem.</span> <span>A modem is what connects the internet to your network at home.</span> <span>A few common residential modems are DSL or</span>
+                </p>
+              </div>
     </div>
-    <div>
-    <p class="transcript">
-        <span>Now that we've looked at the architecture of the internet, let's see how you might</span> <span>connect your personal devices to the internet inside your house.</span><span> Well there are many ways to connect to the internet, and</span> <span>most often people connect wirelessly.</span> <span>Let's look at an example of how you can connect to the internet.</span> <span>If you live in a city or a town, you probably have a coaxial cable for</span> <span>cable Internet, or a phone line if you have DSL, running to the outside of</span> <span>your house, that connects you to the Internet Service Provider, or ISP.</span> <span>If you live far out in the country, you'll more likely have</span> <span>a dish outside your house, connecting you wirelessly to your closest ISP, or</span> <span>you might also use the telephone system.</span> <span>Whether a wire comes straight from the ISP hookup outside your house, or</span> <span>it travels over radio waves from your roof,</span> <span>the first stop a wire will make once inside your house, is at your modem.</span> <span>A modem is what connects the internet to your network at home.</span> <span>A few common residential modems are DSL or</span>
-    </p>
-    </div>
-
     <script src="js/app.js"></script>
     </body>
 </html>
