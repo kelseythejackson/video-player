@@ -197,6 +197,10 @@
   margin: auto;
   width: 100%;
 
+  @media screen and (min-width: 737px) {
+    width: 50%;
+  }
+
   p {
     @extend %hidden;
     align-items: center;

@@ -246,6 +246,9 @@ body .transcript span.highlight {
 body .vid-container .captioning {
   margin: auto;
   width: 100%; }
+  @media screen and (min-width: 737px) {
+    body .vid-container .captioning {
+      width: 50%; } }
   body .vid-container .captioning p {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
