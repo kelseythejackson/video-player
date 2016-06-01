@@ -569,3 +569,4 @@ videoPlayer.desktopPlayback();
 videoPlayer.changeSound();
 videoPlayer.clickScript();
 videoPlayer.vid.addEventListener('timeupdate', videoPlayer.checkFullScreen);
+
