@@ -34,6 +34,7 @@ var videoPlayer = {
     fiftyPercentVol: document.querySelector('.fifty-percent-vol'),
     twentyfivePercentVol: document.querySelector('.twentyfive-percent-vol'),
     noVol: document.querySelector('.no-volume'),
+    imageHolder: document.querySelectorAll('.image-holder'),
     playBack: function () {
         if(videoPlayer.vid.paused) {
             videoPlayer.vid.play();
@@ -44,7 +45,6 @@ var videoPlayer = {
             videoPlayer.playBtn.src = 'icons/play_arrow.svg';
             console.log('paused');
         }
-
     },
     toggleSoundDiv: function () {
 
@@ -78,7 +78,6 @@ var videoPlayer = {
             }
             videoPlayer.fullScreenBtn.src = 'icons/fullscreen.svg';
         }
-
     },
     updateBuffer: function () {
         bufferPercent = (videoPlayer.vid.buffered.end(0) / videoPlayer.vid.duration) * 100;
@@ -113,7 +112,7 @@ var videoPlayer = {
             updatebar = function (x) {
                 var progress = videoPlayer.timeRail,
                     maxDuration = videoPlayer.vid.duration,
-                    position = (x - progress.parentNode.parentNode.parentNode.offsetLeft) - 24,
+                    position = (x - progress.parentNode.parentNode.parentNode.offsetLeft) - 12,
                     percentage = (position / progress.offsetWidth) * 100;
 
                 videoPlayer.time.style.width = percentage + '%';
@@ -330,18 +329,6 @@ var videoPlayer = {
             console.log('Video content might not be loaded');
         }
     },
-    setVolume: function (sValue) {
-        try {
-            if (sValue === 0) {
-                videoPlayer.vid.currentTime = sValue;
-            } else {
-                videoPlayer.vid.currentTime += sValue;
-            }
-        } catch (err) {
-
-            console.log('Video content might not be loaded');
-        }
-    },
     changeSound: function () {
         videoPlayer.fullVol.addEventListener('click', function () {
             videoPlayer.vid.volume = 1;
@@ -404,11 +391,15 @@ var videoPlayer = {
         });
     },
     togglePlaybackDiv: function () {
-        if (videoPlayer.plabackCallout.classList.contains('hidden')) {
-            videoPlayer.plabackCallout.classList.remove('hidden');
-        } else {
-            videoPlayer.plabackCallout.classList.add('hidden');
-        }
+        videoPlayer.playbackSpeed.addEventListener('click', function () {
+            if (videoPlayer.plabackCallout.classList.contains('hidden')) {
+                videoPlayer.plabackCallout.classList.remove('hidden');
+
+            } else {
+                videoPlayer.plabackCallout.classList.add('hidden');
+            }
+        });
+
     },
     desktopPlayback: function () {
         videoPlayer.desktopFastest.addEventListener('click', function () {
@@ -545,8 +536,14 @@ var videoPlayer = {
                 videoPlayer.vid.play();
             }
         });
+    },
+    checkFullScreen: function () {
+        if (window.innerHeight !== screen.height) {
+            videoPlayer.fullScreenBtn.src = 'http://' + window.location.host + '/icons/fullscreen.svg';
+        } else {
+            videoPlayer.fullScreenBtn.src = 'http://' + window.location.host + '/icons/fullscreen_exit.svg';
+        }
     }
-
 };
 
 videoPlayer.playBtn.addEventListener('click', videoPlayer.playBack);
@@ -567,7 +564,8 @@ videoPlayer.mobileSettings.addEventListener('click', videoPlayer.toggleMobileCon
 videoPlayer.mobilePlayback();
 videoPlayer.mobileCaptions();
 videoPlayer.timeJump();
-videoPlayer.playbackSpeed.addEventListener('click', videoPlayer.togglePlaybackDiv);
+videoPlayer.togglePlaybackDiv();
 videoPlayer.desktopPlayback();
 videoPlayer.changeSound();
 videoPlayer.clickScript();
+videoPlayer.vid.addEventListener('timeupdate', videoPlayer.checkFullScreen);
