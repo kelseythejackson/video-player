@@ -546,32 +546,26 @@ var videoPlayer = {
     }
 };
 
-window.onload = init;
-
-
-function init() {
-    videoPlayer.playBtn.addEventListener('click', videoPlayer.playBack);
-    videoPlayer.soundBtn.addEventListener('click', videoPlayer.toggleSoundDiv);
-    videoPlayer.fullScreenBtn.addEventListener('click', videoPlayer.toggleFullscreen);
-    videoPlayer.vid.addEventListener('timeupdate', videoPlayer.updateBuffer);
-    videoPlayer.vid.addEventListener('timeupdate', videoPlayer.updateCurrentTime);
-    videoPlayer.vid.addEventListener('timeupdate', videoPlayer.timeProgress);
-    videoPlayer.vid.removeAttribute('controls');
-    videoPlayer.updateTime();
-    videoPlayer.playBtn.addEventListener('click', videoPlayer.timeEnd);
-    videoPlayer.playBtn.addEventListener('click', videoPlayer.showHideControls);
-    videoPlayer.vid.addEventListener('timeupdate', videoPlayer.showControlsAtEnd);
-    videoPlayer.closeCaption.addEventListener('click', videoPlayer.toggleCaption);
-    videoPlayer.vid.addEventListener('timeupdate', videoPlayer.captions);
-    videoPlayer.vid.textTracks[0].mode = 'hidden';
-    videoPlayer.mobileSettings.addEventListener('click', videoPlayer.toggleMobileControls);
-    videoPlayer.mobilePlayback();
-    videoPlayer.mobileCaptions();
-    videoPlayer.timeJump();
-    videoPlayer.togglePlaybackDiv();
-    videoPlayer.desktopPlayback();
-    videoPlayer.changeSound();
-    videoPlayer.clickScript();
-    videoPlayer.vid.addEventListener('timeupdate', videoPlayer.checkFullScreen);
-}
-
+videoPlayer.playBtn.addEventListener('click', videoPlayer.playBack);
+videoPlayer.soundBtn.addEventListener('click', videoPlayer.toggleSoundDiv);
+videoPlayer.fullScreenBtn.addEventListener('click', videoPlayer.toggleFullscreen);
+videoPlayer.vid.addEventListener('timeupdate', videoPlayer.updateBuffer);
+videoPlayer.vid.addEventListener('timeupdate', videoPlayer.updateCurrentTime);
+videoPlayer.vid.addEventListener('timeupdate', videoPlayer.timeProgress);
+videoPlayer.vid.removeAttribute('controls');
+videoPlayer.updateTime();
+videoPlayer.playBtn.addEventListener('click', videoPlayer.timeEnd);
+videoPlayer.playBtn.addEventListener('click', videoPlayer.showHideControls);
+videoPlayer.vid.addEventListener('timeupdate', videoPlayer.showControlsAtEnd);
+videoPlayer.closeCaption.addEventListener('click', videoPlayer.toggleCaption);
+videoPlayer.vid.addEventListener('timeupdate', videoPlayer.captions);
+videoPlayer.vid.textTracks[0].mode = 'hidden';
+videoPlayer.mobileSettings.addEventListener('click', videoPlayer.toggleMobileControls);
+videoPlayer.mobilePlayback();
+videoPlayer.mobileCaptions();
+videoPlayer.timeJump();
+videoPlayer.togglePlaybackDiv();
+videoPlayer.desktopPlayback();
+videoPlayer.changeSound();
+videoPlayer.clickScript();
+videoPlayer.vid.addEventListener('timeupdate', videoPlayer.checkFullScreen);
