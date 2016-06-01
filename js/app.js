@@ -546,7 +546,8 @@ var videoPlayer = {
     }
 };
 
-videoPlayer.playBtn.addEventListener('click', videoPlayer.playBack);
+window.onload(
+    videoPlayer.playBtn.addEventListener('click', videoPlayer.playBack);
 videoPlayer.soundBtn.addEventListener('click', videoPlayer.toggleSoundDiv);
 videoPlayer.fullScreenBtn.addEventListener('click', videoPlayer.toggleFullscreen);
 videoPlayer.vid.addEventListener('timeupdate', videoPlayer.updateBuffer);
@@ -569,3 +570,6 @@ videoPlayer.desktopPlayback();
 videoPlayer.changeSound();
 videoPlayer.clickScript();
 videoPlayer.vid.addEventListener('timeupdate', videoPlayer.checkFullScreen);
+);
+
+
