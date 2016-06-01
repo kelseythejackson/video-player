@@ -546,7 +546,7 @@ var videoPlayer = {
     }
 };
 
-window.onload = init();
+window.onload = init;
 
 
 function init() {
