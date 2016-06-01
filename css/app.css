@@ -339,7 +339,6 @@ video::-moz-media-controls-enclosure {
   display: none !important; }
 
 .vid-container:-webkit-full-screen {
-  height: 100%;
   width: 100%; }
 
 /*# sourceMappingURL=app.css.map */
