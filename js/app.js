@@ -1,5 +1,6 @@
 var videoPlayer = {
     vid: document.getElementById('video-id'),
+    vidContainer: document.querySelector('.vid-container'),
     playBtn: document.getElementById('play'),
     soundBtn: document.getElementById('volume'),
     fullScreenBtn: document.getElementById('fullscreen'),
@@ -55,14 +56,14 @@ var videoPlayer = {
     },
     toggleFullscreen: function () {
         if(!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-            if(videoPlayer.vid.requestFullscreen) {
-                videoPlayer.vid.requestFullscreen();
-            } else if(videoPlayer.vid.mozRequestFullScreen) {
-                videoPlayer.vid.mozRequestFullScreen();
-            } else if(videoPlayer.vid.webkitRequestFullscreen) {
-                videoPlayer.vid.webkitRequestFullscreen();
-            } else if(videoPlayer.vid.msRequestFullscreen) {
-                videoPlayer.vid.msRequestFullscreen();
+            if(videoPlayer.vidContainer.requestFullscreen) {
+                videoPlayer.vidContainer.requestFullscreen();
+            } else if(videoPlayer.vidContainer.mozRequestFullScreen) {
+                videoPlayer.vidContainer.mozRequestFullScreen();
+            } else if(videoPlayer.vidContainer.webkitRequestFullscreen) {
+                videoPlayer.vidContainer.webkitRequestFullscreen();
+            } else if(videoPlayer.vidContainer.msRequestFullscreen) {
+                videoPlayer.vidContainer.msRequestFullscreen();
             }
             videoPlayer.fullScreenBtn.src = 'icons/fullscreen_exit.svg';
         } else {
@@ -456,65 +457,93 @@ var videoPlayer = {
             }
         });
         videoPlayer.transcripts[1].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 4.130;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 4.130;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[2].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 7.535;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 7.535;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[3].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 11.270;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 11.270;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[4].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 13.960;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 13.960;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[5].addEventListener('click', function () {
             videoPlayer.vid.currentTime = 17.940;
             videoPlayer.vid.play();
         });
         videoPlayer.transcripts[6].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 22.370;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 22.370;
+                videoPlayer.vid.play();
+            }
         });
 
         videoPlayer.transcripts[7].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 26.880;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 26.880;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[8].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 32.100;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 32.100;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[9].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 34.730;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 34.730;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[10].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 39.430;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 39.430;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[11].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 42.350;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 42.350;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[12].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 46.300;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 46.300;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[13].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 49.270;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 49.270;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[14].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 53.760;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 53.760;
+                videoPlayer.vid.play();
+            }
         });
         videoPlayer.transcripts[15].addEventListener('click', function () {
-            videoPlayer.vid.currentTime = 57.780;
-            videoPlayer.vid.play();
+            if(!videoPlayer.vid.paused) {
+                videoPlayer.vid.currentTime = 57.780;
+                videoPlayer.vid.play();
+            }
         });
     }
 
