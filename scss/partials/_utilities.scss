@@ -139,11 +139,8 @@
 
       @media screen and (min-width: 737px) {
         background-color: rgba($black, .5);
-        //margin: 0 0 12px;
       }
     }
-
-
   }
 }
 
@@ -155,6 +152,7 @@
     .vid-container:hover & {
       opacity: 1;
     }
+
     @media screen and (min-width: 737px) {
       opacity: 0;
     }
@@ -204,7 +202,7 @@
   }
 
   p {
-    @extend %hidden;
+    @extend %no-display;
     align-items: center;
     background-color: rgba($black, .5);
     border-radius: $border-radius;
@@ -225,6 +223,12 @@
   }
 }
 
+%no-display {
+  &.no-display {
+    display: none;
+  }
+}
+
 %full-opacity {
   &.full-opacity {
     opacity: 1;
@@ -239,6 +243,19 @@
     margin: auto;
     max-width: 1280px;
     padding: $padding;
+  }
+}
+
+%para-holder {
+  p {
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+
+    span {
+      @extend %add-color;
+      transition: $transition;
+    }
   }
 }
 
@@ -257,19 +274,9 @@
     flex-direction: column;
 
     li {
+      @extend %para-holder;
       display: flex;
       justify-content: space-between;
-
-      p {
-        display: flex;
-        justify-content: space-between;
-        width: 120px;
-
-        span {
-          @extend %add-color;
-          transition: $transition;
-        }
-      }
     }
   }
 

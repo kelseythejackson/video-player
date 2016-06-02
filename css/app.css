@@ -260,9 +260,12 @@ body .vid-container .captioning {
     padding: 12px;
     text-align: center; }
 
-body .vid-container .captioning p.hidden, .hidden.mobile-controls, .hidden.playback-callout, .hidden.volume-callout {
+.hidden.mobile-controls, .hidden.playback-callout, .hidden.volume-callout {
   bottom: 28px;
   opacity: 0; }
+
+body .vid-container .captioning p.no-display {
+  display: none; }
 
 body .vid-container .vid-controls .inner-controls img.full-opacity {
   opacity: 1; }
@@ -271,6 +274,13 @@ body .container {
   margin: auto;
   max-width: 1280px;
   padding: 12px; }
+
+.mobile-controls ul li p {
+  display: flex;
+  justify-content: space-between;
+  width: 120px; }
+  .mobile-controls ul li p span {
+    transition: 0.3s; }
 
 .mobile-controls {
   background-color: rgba(0, 0, 0, 0.5);
@@ -286,12 +296,6 @@ body .container {
     .mobile-controls ul li {
       display: flex;
       justify-content: space-between; }
-      .mobile-controls ul li p {
-        display: flex;
-        justify-content: space-between;
-        width: 120px; }
-        .mobile-controls ul li p span {
-          transition: 0.3s; }
   @media screen and (min-width: 737px) {
     .mobile-controls {
       display: none; } }

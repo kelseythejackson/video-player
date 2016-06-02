@@ -80,11 +80,11 @@ var videoPlayer = {
         }
     },
     updateBuffer: function () {
-        bufferPercent = (videoPlayer.vid.buffered.end(0) / videoPlayer.vid.duration) * 100;
+        var bufferPercent = (videoPlayer.vid.buffered.end(0) / videoPlayer.vid.duration) * 100;
         videoPlayer.buffer.style.width = bufferPercent + '%';
     },
     updateCurrentTime: function () {
-        currentTimePercent = (videoPlayer.vid.currentTime / videoPlayer.vid.duration) * 100;
+        var currentTimePercent = (videoPlayer.vid.currentTime / videoPlayer.vid.duration) * 100;
         videoPlayer.time.style.width = currentTimePercent + '%';
     },
     timeProgress: function () {
@@ -153,12 +153,12 @@ var videoPlayer = {
     },
     toggleCaption: function () {
       if (videoPlayer.captionHolder.innerText !== "") {
-        if (videoPlayer.captionHolder.classList.contains('hidden')) {
-          videoPlayer.captionHolder.classList.remove('hidden');
+        if (videoPlayer.captionHolder.classList.contains('no-display')) {
+          videoPlayer.captionHolder.classList.remove('no-display');
           videoPlayer.closeCaption.classList.add('full-opacity');
           videoPlayer.closeCaption.src = 'icons/closed_caption_orange.svg';
         } else {
-          videoPlayer.captionHolder.classList.add('hidden');
+          videoPlayer.captionHolder.classList.add('no-display');
           videoPlayer.closeCaption.classList.remove('full-opacity');
             videoPlayer.closeCaption.src = 'icons/closed_caption.svg';
         }
@@ -280,6 +280,7 @@ var videoPlayer = {
     },
     mobilePlayback: function () {
       videoPlayer.normalSpeed.addEventListener('click', function () {
+          console.log('normal');
         videoPlayer.vid.playbackRate = 1;
         videoPlayer.normalSpeed.classList.add('add-color');
         videoPlayer.fastSpeed.classList.remove('add-color');
@@ -287,6 +288,7 @@ var videoPlayer = {
         console.log(videoPlayer.vid.playbackRate);
       });
       videoPlayer.fastSpeed.addEventListener('click', function () {
+          console.log('fast');
         videoPlayer.vid.playbackRate = 1;
         videoPlayer.vid.playbackRate += 0.5;
         videoPlayer.fastSpeed.classList.add('add-color');
@@ -295,6 +297,7 @@ var videoPlayer = {
         console.log(videoPlayer.vid.playbackRate);
       });
       videoPlayer.fasterSpeed.addEventListener('click', function () {
+          console.log('fastest');
         videoPlayer.vid.playbackRate = 1;
         videoPlayer.vid.playbackRate += 1;
         videoPlayer.normalSpeed.classList.remove('add-color');
@@ -306,13 +309,13 @@ var videoPlayer = {
     },
     mobileCaptions: function () {
       videoPlayer.mobileOn.addEventListener('click', function () {
-        videoPlayer.captionHolder.classList.remove('hidden');
+        videoPlayer.captionHolder.classList.remove('no-display');
         videoPlayer.mobileOn.classList.add('add-color');
         videoPlayer.mobileOff.classList.remove('add-color');
       });
 
       videoPlayer.mobileOff.addEventListener('click', function () {
-        videoPlayer.captionHolder.classList.add('hidden');
+        videoPlayer.captionHolder.classList.add('no-display');
         videoPlayer.mobileOff.classList.add('add-color');
         videoPlayer.mobileOn.classList.remove('add-color');
       });
@@ -342,7 +345,7 @@ var videoPlayer = {
 
         videoPlayer.fiftyPercentVol.addEventListener('click', function () {
             videoPlayer.vid.volume = 1;
-            videoPlayer.vid.volume -= .5;
+            videoPlayer.vid.volume -= 0.5;
             videoPlayer.fullVol.classList.remove('add-color');
             videoPlayer.fiftyPercentVol.classList.add('add-color');
             videoPlayer.twentyfivePercentVol.classList.remove('add-color');
@@ -353,7 +356,7 @@ var videoPlayer = {
 
         videoPlayer.twentyfivePercentVol.addEventListener('click', function () {
             videoPlayer.vid.volume = 1;
-            videoPlayer.vid.volume -= .75;
+            videoPlayer.vid.volume -= 0.75;
             videoPlayer.fullVol.classList.remove('add-color');
             videoPlayer.fiftyPercentVol.classList.remove('add-color');
             videoPlayer.twentyfivePercentVol.classList.add('add-color');
@@ -413,7 +416,7 @@ var videoPlayer = {
         });
         videoPlayer.desktopFast.addEventListener('click', function () {
             videoPlayer.vid.playbackRate = 1;
-            videoPlayer.vid.playbackRate += .5;
+            videoPlayer.vid.playbackRate += 0.5;
             videoPlayer.desktopNormal.classList.remove('add-color');
             videoPlayer.desktopFastest.classList.remove('add-color');
             videoPlayer.desktopFast.classList.add('add-color');
@@ -431,7 +434,7 @@ var videoPlayer = {
         });
         videoPlayer.desktopSlow.addEventListener('click', function () {
             videoPlayer.vid.playbackRate = 1;
-            videoPlayer.vid.playbackRate -= .5;
+            videoPlayer.vid.playbackRate -= 0.5;
             videoPlayer.desktopNormal.classList.remove('add-color');
             videoPlayer.desktopFastest.classList.remove('add-color');
             videoPlayer.desktopFast.classList.remove('add-color');
@@ -537,11 +540,53 @@ var videoPlayer = {
             }
         });
     },
-    checkFullScreen: function () {
+    checkConsis: function () {
         if (window.innerHeight !== screen.height) {
-            videoPlayer.fullScreenBtn.src = 'http://' + window.location.host + '/icons/fullscreen.svg';
+            videoPlayer.fullScreenBtn.src = 'icons/fullscreen.svg';
         } else {
-            videoPlayer.fullScreenBtn.src = 'http://' + window.location.host + '/icons/fullscreen_exit.svg';
+            videoPlayer.fullScreenBtn.src = 'icons/fullscreen_exit.svg';
+        }
+
+        if (videoPlayer.vid.playbackRate === 1.5) {
+            videoPlayer.desktopFast.classList.add('add-color');
+            videoPlayer.desktopNormal.classList.remove('add-color');
+            videoPlayer.desktopFastest.classList.remove('add-color');
+            videoPlayer.desktopSlow.classList.remove('add-color');
+            videoPlayer.normalSpeed.classList.remove('add-color');
+            videoPlayer.fasterSpeed.classList.remove('add-color');
+        } else if (videoPlayer.vid.playbackRate === 2) {
+            videoPlayer.desktopFast.classList.remove('add-color');
+            videoPlayer.desktopNormal.classList.remove('add-color');
+            videoPlayer.desktopFastest.classList.add('add-color');
+            videoPlayer.desktopSlow.classList.remove('add-color');
+            videoPlayer.normalSpeed.classList.remove('add-color');
+            videoPlayer.fastSpeed.classList.remove('add-color');
+        } else if (videoPlayer.vid.playbackRate === 1) {
+            videoPlayer.desktopFast.classList.remove('add-color');
+            videoPlayer.desktopNormal.classList.add('add-color');
+            videoPlayer.desktopFastest.classList.remove('add-color');
+            videoPlayer.desktopSlow.classList.remove('add-color');
+            videoPlayer.fasterSpeed.classList.remove('add-color');
+            videoPlayer.fastSpeed.classList.remove('add-color');
+        } else if (videoPlayer.vid.playbackRate === 0.5) {
+            videoPlayer.desktopFast.classList.remove('add-color');
+            videoPlayer.desktopNormal.classList.remove('add-color');
+            videoPlayer.desktopFastest.classList.remove('add-color');
+            videoPlayer.normalSpeed.classList.remove('add-color');
+            videoPlayer.fasterSpeed.classList.remove('add-color');
+            videoPlayer.fastSpeed.classList.remove('add-color');
+        }
+
+        if (videoPlayer.captionHolder.classList.contains('no-display')) {
+            videoPlayer.mobileOn.classList.remove('add-color');
+            videoPlayer.mobileOff.classList.add('add-color');
+            videoPlayer.closeCaption.classList.remove('full-opacity');
+            videoPlayer.closeCaption.src = 'icons/closed_caption.svg';
+        } else {
+            videoPlayer.mobileOn.classList.add('add-color');
+            videoPlayer.mobileOff.classList.remove('add-color');
+            videoPlayer.closeCaption.classList.add('full-opacity');
+            videoPlayer.closeCaption.src = 'icons/closed_caption_orange.svg';
         }
     }
 };
@@ -570,3 +615,4 @@ videoPlayer.changeSound();
 videoPlayer.clickScript();
 videoPlayer.vid.addEventListener('timeupdate', videoPlayer.checkFullScreen);
 
+setInterval(videoPlayer.checkConsis, 0);
