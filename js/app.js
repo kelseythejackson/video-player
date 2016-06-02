@@ -554,6 +554,7 @@ var videoPlayer = {
             videoPlayer.desktopSlow.classList.remove('add-color');
             videoPlayer.normalSpeed.classList.remove('add-color');
             videoPlayer.fasterSpeed.classList.remove('add-color');
+            videoPlayer.fastSpeed.classList.add('add-color');
         } else if (videoPlayer.vid.playbackRate === 2) {
             videoPlayer.desktopFast.classList.remove('add-color');
             videoPlayer.desktopNormal.classList.remove('add-color');
@@ -561,6 +562,7 @@ var videoPlayer = {
             videoPlayer.desktopSlow.classList.remove('add-color');
             videoPlayer.normalSpeed.classList.remove('add-color');
             videoPlayer.fastSpeed.classList.remove('add-color');
+            videoPlayer.fasterSpeed.classList.add('add-color');
         } else if (videoPlayer.vid.playbackRate === 1) {
             videoPlayer.desktopFast.classList.remove('add-color');
             videoPlayer.desktopNormal.classList.add('add-color');
@@ -568,6 +570,7 @@ var videoPlayer = {
             videoPlayer.desktopSlow.classList.remove('add-color');
             videoPlayer.fasterSpeed.classList.remove('add-color');
             videoPlayer.fastSpeed.classList.remove('add-color');
+            videoPlayer.normalSpeed.classList.add('add-color');
         } else if (videoPlayer.vid.playbackRate === 0.5) {
             videoPlayer.desktopFast.classList.remove('add-color');
             videoPlayer.desktopNormal.classList.remove('add-color');
